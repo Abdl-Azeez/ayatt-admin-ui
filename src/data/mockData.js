@@ -266,7 +266,7 @@ export const mockDataInvoices = [
   },
 ];
 
-export const mockTransactions = [
+export const mockBookings = [
   {
     txId: "01e4dsa",
     user: "johndoe",

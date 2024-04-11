@@ -20,8 +20,8 @@ import {
 function* loginUser({ payload }) {
   try {
     const response = yield call(LoginService, payload);
-    localStorage.setItem("bnbToken", JSON.stringify(response.data.token));
-    document.cookie = JSON.stringify(response.data.token);
+    localStorage.setItem("ayattToken", JSON.stringify(response.data.token));
+    localStorage.setItem("ayattUser", JSON.stringify(response.data.user));
     yield put(loginUserSuccessful(response.data));
     // history.push("/");
   } catch (error) {
@@ -33,7 +33,8 @@ function* loginUser({ payload }) {
 function* logoutUser({ payload: { history } }) {
   try {
 
-    localStorage.removeItem("bnbToken");
+    localStorage.removeItem("ayattToken");
+    localStorage.removeItem("ayattUser");
     yield put(logoutUserSuccess());
     history.push("/login");
   } catch (error) {

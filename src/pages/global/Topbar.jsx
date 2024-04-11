@@ -8,11 +8,22 @@ import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchIcon from "@mui/icons-material/Search";
+import { Logout } from "@mui/icons-material";
+import { logoutUser } from "../../store/auth/actions";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 const Topbar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const colorMode = useContext(ColorModeContext);
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logoutUser(navigate));
+  };
 
   return (
     <Box display="flex" justifyContent="space-between" p={2}>
@@ -46,6 +57,13 @@ const Topbar = () => {
         <IconButton>
           <PersonOutlinedIcon />
         </IconButton>
+        <button
+          onClick={handleLogout}
+          className="flex items-center justify-center border border-red-500 hover:bg-red-500 hover:text-white text-red-500 font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          <Logout className="w-3 h-3 mr-2" />
+          Logout
+        </button>
       </Box>
     </Box>
   );

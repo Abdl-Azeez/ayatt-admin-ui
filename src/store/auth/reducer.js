@@ -31,7 +31,7 @@ const Auth = (state = initialState, action) => {
     case LOGIN_USER_SUCCESSFUL:
       state = {
         ...state,
-        token: action.payload,
+        user: action.payload,
         loading: false,
         activationError: null,
         isAuthenticated: true,
@@ -39,13 +39,12 @@ const Auth = (state = initialState, action) => {
       break;
 
     case LOGOUT_USER:
-      state = { ...state, loading: true, token: null };
+      state = { ...state, loading: true, user: null };
       break;
 
     case LOGOUT_USER_SUCCESSFULLY:
       state = {
         ...state,
-        token: null,
         user: null,
         loginError: null,
         activationError: null,
@@ -61,7 +60,6 @@ const Auth = (state = initialState, action) => {
       state = {
         ...state,
         user: null,
-        token: null,
         isAuthenticated: false,
         loading: false,
         message: null,
@@ -75,7 +73,6 @@ const Auth = (state = initialState, action) => {
       state = {
         ...state,
         user: null,
-        token: null,
         isAuthenticated: false,
         loading: false,
         message: null,

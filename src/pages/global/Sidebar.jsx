@@ -182,7 +182,7 @@ const Sidebar = () => {
               icon={<HelpOutlineOutlinedIcon />}
             />
 
-            <Typography
+            {/* <Typography
               variant="h6"
               color={colors.grey[300]}
               sx={{ m: "15px 0 5px 20px" }}
@@ -204,7 +204,7 @@ const Sidebar = () => {
               title="Geography Chart"
               to="/geography"
               icon={<MapOutlinedIcon />}
-            />
+            /> */}
           </Box>
         </Menu>
       </ProSidebar>
